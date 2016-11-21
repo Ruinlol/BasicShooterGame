@@ -10,12 +10,16 @@ function Sniper (context) {
   this.sniper = new Image();
   this.sniper.src ='assets/sprites/sniper.png';
 }
+
 Sniper.prototype.draw = function (){
   this.context.drawImage(this.sniper,this.frame,0,this.width,this.height,this.postion.x,this.postion.y,
   this.width,this.height)
   this.context.save();
 }
-Sniper.prototype.walk = function () {
+
+Sniper.prototype.walk = function (currentx, currenty) {
+  // this.postion.x = currentx;
+  // this.postion.y = currenty;
   this.context.clearRect(this.postion.x,this.postion.y,this.postion.x + this.width,
   this.postion.y + this.height);
   if (this.frame == 423) {
@@ -24,6 +28,4 @@ Sniper.prototype.walk = function () {
   this.context.drawImage(this.sniper,this.frame,0,this.width,this.height,this.postion.x,this.postion.y,
   this.width,this.height)
   this.frame += 52.875;
-
-
 }
